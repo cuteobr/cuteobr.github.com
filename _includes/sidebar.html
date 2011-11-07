@@ -1,0 +1,33 @@
+<h2>Contact me</h2>
+<p>
+  <a href="mailto:cuteobr.at.gmail.com">
+    <img src="/images/email_logo.png" title="Drop me an e-mail" />
+   </a>
+   <a href="http://twitter.com/#!/cuteobr">
+    <img src="/images/twitter_logo.png" title="Follow Me on Twitter" />
+   </a>
+   <a href="http://www.flickr.com/photos/cuteobr/">
+    <img src="/images/flickr_logo.png" title="View my photos on Flickr" />
+   </a>
+</p>
+
+<h2>Tags</h2>
+<p>
+  {% include tag_cloud.html %}
+</p>
+
+<h2>Search</h2>
+<form action="http://www.google.com/search" id="search" method="get">
+  <input class="text" name="q" type="text" />
+  <input name="sitesearch" type="hidden" value="cuteobr.github.com" />
+  <input class="button" type="submit" value="Google" />
+</form>
+
+<h2>Bài mới</h2>
+<ul class="posts">
+  {% for post in site.posts limit:5 %}
+    <li><a href="{{ post.url }}">{{ post.title }}</a>
+      <br/><span class="date">{{ post.date | date: "%b %d, %Y" }}</span>
+    </li>
+  {% endfor %}
+</ul>

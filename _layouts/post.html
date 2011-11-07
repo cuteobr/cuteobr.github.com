@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<div class="post">
+  <h3 class="date">{{ page.date | date: "%B %d, %Y" }}</h3>
+  <h2 class="title"><a href="{{ page.url }}">{{ page.title }}</a></h2>
+  <div class="meta">
+    Gửi bởi <span class="author">cute0br</span> &#149;
+    Tags:
+    {% for tag in page.tags %}
+      <a href="/tags/{{ tag }}" title="Xem các bài thuộc tag &quot;{{ tag }}&quot;">{{ tag }}</a>{% if forloop.last != true %}, {% endif %}
+    {% endfor %} &#149;
+  </div>
+  <div class="body">
+    {{ content }}
+  </div>
+
+  <div class="related_posts">
+    <h4>Bài viết tương tự</h4>
+    <ul class="posts">
+      {% for post in site.related_posts limit:3 %}
+        <li><span class="date">{{ post.date | date: "%b %d, %Y" }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
